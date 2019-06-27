@@ -1,1 +1,44 @@
-<!-- HTML & HubL code goes here -->
+{# Please do NOT modify this module/file because your changes may be overwritten by future installation from BRiX Editor. To customize this, please clone this module/file and work from there. #}
+
+{{ require_css("//cdn2.hubspot.net/hubfs/346178/designmodo/ui-kit/ui-kit-content/css/ui-kit-styles.css") }}      
+<!-- content-3 -->
+<section class="content-3 content-3-v2" style="background-color: {{ module.background_color.color }};">
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 aligment">
+                    {{ module.text }}
+                </div>
+                <div class="col-sm-6">
+                    <div class="img">
+                    {% if module.image.src %}
+                        <img src="{{ module.image.src }}" alt="{{ module.image.alt }}" class="img-responsive">
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="delimiter">&nbsp;</div>
+        <div class="container">
+            <div class="row features">
+                {% set count = 0 %}
+                
+                {% for feature in module.features %}
+                
+                {% if count == 0 %}
+                <div class="col-sm-3">{{ feature }}</div>
+                {% else %}
+                <div class="col-sm-3 col-sm-offset-1">{{ feature }}</div>
+                {% endif %}
+                
+                {% if count == 2 %}
+                    {% set count = 0 %}
+                {% else %}
+                    {% set count = count + 1 %}
+                {% endif %}
+                
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
